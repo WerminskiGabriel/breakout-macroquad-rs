@@ -1,6 +1,8 @@
+use crate::settings;
 use crate::settings::balls;
 use getset::{Getters, MutGetters};
 use macroquad::prelude::*;
+
 #[derive(Getters, MutGetters)]
 pub struct Ball {
     #[getset(get = "pub", get_mut = "pub")]
@@ -12,7 +14,7 @@ pub struct Ball {
 impl Ball {
     pub fn new(pos: Vec2) -> Self {
         Self {
-            rect: Rect::new(pos.x, pos.y, balls::SIZE.x,balls::SIZE.y),
+            rect: Rect::new(pos.x, pos.y, balls::SIZE.x, balls::SIZE.y),
             vel: vec2(rand::gen_range(-1f32, 1f32), 1f32).normalize(),
         }
     }
@@ -30,6 +32,12 @@ impl Ball {
         }
     }
     pub fn draw(&self) {
-        draw_rectangle(self.rect.x, self.rect.y, self.rect.w, self.rect.h, WHITE)
+        draw_rectangle(
+            self.rect.x,
+            self.rect.y,
+            self.rect.w,
+            self.rect.h,
+            settings::balls::COLOR,
+        )
     }
 }

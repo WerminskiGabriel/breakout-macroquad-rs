@@ -1,6 +1,8 @@
 use crate::settings::player;
 use getset::{Getters, MutGetters};
 use macroquad::prelude::*;
+use crate::settings;
+
 #[derive(Getters, MutGetters)]
 pub struct Player {
     #[getset( get="pub", get_mut="pub")]
@@ -35,6 +37,6 @@ impl Player {
         }
     }
     pub fn draw(&self) {
-        draw_rectangle(self.rect.x, self.rect.y, self.rect.w, self.rect.h, DARKBLUE)
+        draw_rectangle(self.rect.x, self.rect.y, self.rect.w, self.rect.h, settings::player::COLOR)
     }
 }

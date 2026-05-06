@@ -1,8 +1,8 @@
-use macroquad::prelude::*;
 use crate::balls::Ball;
+use crate::settings;
+use macroquad::prelude::*;
 
 pub fn resolve_collision(ball_a: &mut Ball, b: &Rect) -> bool {
-
     let intersection = match ball_a.rect().intersect(*b) {
         Some(intersection) => intersection,
         None => return false,
@@ -34,7 +34,8 @@ pub fn resolve_collision(ball_a: &mut Ball, b: &Rect) -> bool {
 }
 
 pub fn draw_title_text(text: &str, font: &Font) {
-    let dims = measure_text(&text, Some(&font), 50u16, 1f32);
+    let font_size = 40u16;
+    let dims = measure_text(&text, Some(&font), font_size, 1f32);
 
     draw_text_ex(
         &text,
@@ -42,8 +43,8 @@ pub fn draw_title_text(text: &str, font: &Font) {
         screen_height() * 0.5f32,
         TextParams {
             font: Some(&font),
-            font_size: 30,
-            color: BLACK,
+            font_size,
+            color: settings::ui::TEXT_COLOR,
             ..Default::default()
         },
     );
