@@ -26,7 +26,7 @@ pub mod blocks {
     pub const COLUMNS: usize = 6;
     pub const ROWS: usize = 6;
     pub const PADDING: f32 = 10f32;
-    pub const COLOR: Color = COLOR_BLACK;
+    pub const COLOR: Color = COLOR_BEIGE;
     pub const INITIAL_LIVES: i32 = 4;
 }
 
@@ -35,7 +35,7 @@ pub mod player {
     pub const SIZE: Vec2 = Vec2::new(150f32, 40f32);
     pub const SPEED: f32 = 500f32;
     pub const INITIAL_LIVES: i32 = 3;
-    pub const COLOR: Color = COLOR_BLACK;
+    pub const COLOR: Color = COLOR_BEIGE;
 }
 pub mod balls {
     use super::*;
@@ -49,5 +49,5 @@ pub mod ui {
 
     pub const FONT_SIZE: u16 = 30u16;
     pub const TEXT_COLOR: Color = COLOR_RED;
-    pub const BACKGROUND_COLOR: Color = COLOR_BEIGE;
+    pub const BACKGROUND_COLOR: Color = COLOR_BLACK;
 }
